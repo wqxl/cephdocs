@@ -183,7 +183,7 @@ admins 22235     1 1 Sep24 ?	 00:40:24 /home/admins/code/ceph/build/bin/ceph-osd
 从结果可以看到，主OSD进程号为 `22235`。
 
 ### GDB调试
-**进入gdb模式**
+**进入gdb模式**  
 gdb调试需要以管理员权限，执行以下命令，进入gdb模式。
 ```bash
 sudo gdb
@@ -206,7 +206,7 @@ Type "apropos word" to search for commands related to "word".
 (gdb)
 ```
 
-**attach osd2 进程**
+**attach osd2 进程**  
 ```bash
 (gdb) attach 22235 
 -----------------------------------------------------------------------------------------------------------------------
@@ -234,8 +234,8 @@ Using host libthread db library "/lib/x86_64-linux-gnu/libthread db.so.1"
 (gdb)
 ```
 
-**设置断点**
-本例断电设置在PrimaryLogPG::do_op函数开始，设置完断电之，执行continue。
+**设置断点**  
+本例断电设置在PrimaryLogPG::do_op函数开始，设置完断点之后，执行continue。
 ```bash
 (gdb) b PrimaryLogPG.cc:1952
 Breakpoint 1 at 0x55b305d28af2: file /home/admins/code/ceph/src/osd/PrimaryLogPG.cc, line 1952.
@@ -243,7 +243,7 @@ Breakpoint 1 at 0x55b305d28af2: file /home/admins/code/ceph/src/osd/PrimaryLogPG
 Continuing.
 ```
 
-**测试**
+**测试**  
 向存储池中写入数据，测试结果如下。
 ```bash
 [Switching to Thread 0x7fd0034cb700 (LWP 22364)]
